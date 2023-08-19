@@ -9,7 +9,7 @@ current state == event ==> next state (and may trigger some actions)
 <dependency>
   <groupId>io.github.topicstudy</groupId>
   <artifactId>state-machine</artifactId>
-  <version>1.0.0</version>
+  <version>RELEASE</version>
 </dependency>
 ```
 
