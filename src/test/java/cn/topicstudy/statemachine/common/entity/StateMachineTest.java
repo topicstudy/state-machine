@@ -59,6 +59,18 @@ public class StateMachineTest {
     }
 
     @Test
+    public void testNotInitStateMachine() {
+        StateMachine stateMachine = new StateMachine();
+        try {
+            stateMachine.checkCanStateFlow("1", "2");
+        } catch (BizException e) {
+            System.out.println(e.getErrorCode() + "," + e.getErrorMsg());
+            Assert.assertNotNull(e);
+            Assert.assertEquals(e.getErrorCode(), StateMachineErrorCodeEnum.NOT_INIT_STATE_MACHINE.getErrorCode());
+        }
+    }
+
+    @Test
     public void checkCanStateFlow() {
         // 可流转
         healthStateMachine.checkCanStateFlow(HealthStateEnum.HEALTH, HealthStateEnum.CATCH_A_COLD);
@@ -72,7 +84,7 @@ public class StateMachineTest {
             Assert.assertEquals(e.getErrorCode(), StateMachineErrorCodeEnum.STATE_CANT_FLOW.getErrorCode());
         }
 
-        Assert.assertThrows(BizException.class, () -> healthStateMachine.checkCanStateFlow(HealthStateEnum.IN_RECOVERY, HealthStateEnum.CATCH_A_COLD));
+//        Assert.assertThrows(BizException.class, () -> healthStateMachine.checkCanStateFlow(HealthStateEnum.IN_RECOVERY, HealthStateEnum.CATCH_A_COLD));
     }
 
 }

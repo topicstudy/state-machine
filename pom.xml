@@ -7,7 +7,7 @@
     <!--required by sonatype start-->
     <groupId>io.github.topicstudy</groupId>
     <artifactId>state-machine</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>A state machine</description>
     <name>io.github.topicstudy:state-machine</name>
     <packaging>jar</packaging>

@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class Action {
-    private String code;
-    private String name;
+    private String actionCode;
+    private String actionName;
 }

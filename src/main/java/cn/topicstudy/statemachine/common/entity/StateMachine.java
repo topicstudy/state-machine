@@ -56,7 +56,9 @@ public class StateMachine {
 
         // 注意：currentState==nextState时状态是否可流转，看是否初始化了StateFlowItem
 
-        CommonAssertUtil.throwException(this.currentStateToNextStateMap == null, StateMachineErrorCodeEnum.NOT_INIT_STATE_MACHINE);
+        // 传入的状态不空，但是状态机无状态流转信息
+        CommonAssertUtil.throwException(this.currentStateToNextStateMap == null || this.currentStateToNextStateMap.isEmpty(),
+                StateMachineErrorCodeEnum.NOT_INIT_STATE_MACHINE);
 
         List<String> flowableNextStateList = this.currentStateToNextStateMap.get(currentStateCode);
         return flowableNextStateList != null && flowableNextStateList.contains(nextStateCode);
